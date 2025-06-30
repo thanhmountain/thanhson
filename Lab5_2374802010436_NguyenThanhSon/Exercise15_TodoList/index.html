@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Todo List</title>
+  <style>
+    .todo-item { margin: 5px 0; }
+    .delete-btn { margin-left: 10px; color: red; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Todo List</h1>
+  <input type="text" id="taskInput" placeholder="Add a task...">
+  <button id="addBtn">Add Task</button>
+  <ul id="taskList"></ul>
+  <script>
+    const taskInput = document.getElementById("taskInput");
+    const addBtn = document.getElementById("addBtn");
+    const taskList = document.getElementById("taskList");
+    addBtn.addEventListener("click", () => {
+      const taskText = taskInput.value.trim();
+      if (taskText) {
+        const li = document.createElement("li");
+        li.className = "todo-item";
+        li.innerHTML = `${taskText} <span class="delete-btn">Delete</span>`;
+        taskList.appendChild(li);
+        taskInput.value = "";
+        li.querySelector(".delete-btn").addEventListener("click", () => {
+          li.remove();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
