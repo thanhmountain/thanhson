@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Scores</title>
+</head>
+<body>
+    <h1>Student Scores</h1>
+    <table border="1">
+        <tr>
+            <th>Subject</th>
+            <th>Score</th>
+        </tr>
+        {% for subject, score in scores.items() %}
+        <tr>
+            <td>{{ subject }}</td>
+            <td>{{ score }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2>Average Score: {{ average_score }}</h2>
+</body>
+</html>

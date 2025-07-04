@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Poll</title>
+</head>
+<body>
+    <h1>Vote for your favorite animal!</h1>
+    <form action="/poll" method="POST">
+        {% for option in options %}
+        <input type="radio" name="vote" value="{{ option }}" required> {{ option }}<br>
+        {% endfor %}
+        <button type="submit">Vote</button>
+    </form>
+
+    <h2>Poll Results:</h2>
+    <ul>
+        {% for option in options %}
+        <li>{{ option }}: {{ votes[option] }} votes ({{ percentages[option]|round(2) }}%)</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
